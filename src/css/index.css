@@ -1,0 +1,246 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.App {
+  height: 100vh;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#3E3E3E), to(#000));
+  background-image: linear-gradient(#3E3E3E, #000);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 100px;
+      grid-template-rows: 1fr 100px;
+}
+
+.App .playlist-container {
+  display: -ms-grid;
+  display: grid;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  -ms-grid-columns: 20% 1fr;
+      grid-template-columns: 20% 1fr;
+  overflow: hidden;
+}
+
+.App .playlist-container .playlist-info h1 {
+  padding: 10px;
+  text-align: center;
+  font-size: 36px;
+  color: white;
+  font-weight: normal;
+}
+
+.App .playlist-container .playlist-info img {
+  width: 100%;
+  height: auto;
+}
+
+.App .playlist-container .playlist-info .info {
+  padding: 10px;
+  color: white;
+}
+
+.App .playlist-container .playlist-info .info h2 {
+  font-weight: lighter;
+  font-size: 32px;
+}
+
+.App .playlist-container .playlist {
+  overflow-y: scroll;
+}
+
+.App .playlist-container .playlist .Brano {
+  padding: 10px 0;
+  height: auto;
+  color: white;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  -ms-grid-columns: 60px 1fr 1fr 1fr;
+      grid-template-columns: 60px 1fr 1fr 1fr;
+}
+
+.App .playlist-container .playlist .Brano .select {
+  outline: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  opacity: 0;
+}
+
+.App .playlist-container .playlist .Brano h2 {
+  font-weight: normal;
+  font-size: 20px;
+}
+
+.App .playlist-container .playlist .Brano:hover {
+  background-color: rgba(238, 238, 238, 0.2);
+}
+
+.App .playlist-container .playlist .Brano:hover .select {
+  opacity: 1;
+}
+
+.App .playlist-container .playlist .playing {
+  color: #1ED760;
+}
+
+.App .Player {
+  background-color: #282828;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  padding: 0 10px 0 0;
+}
+
+.App .Player .cover {
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.App .Player .cover img {
+  width: 100px;
+  height: 100%;
+}
+
+.App .Player .cover .info {
+  padding-left: 10px;
+  color: white;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.App .Player .cover .info .h1 {
+  display: block;
+  font-size: 20px;
+}
+
+.App .Player .cover .info .h2 {
+  font-size: 15px;
+}
+
+.App .Player .comandi {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.App .Player .comandi .play {
+  margin: 0 30px;
+}
+
+.App .Player .comandi .play, .App .Player .comandi .next, .App .Player .comandi .prev {
+  outline: none;
+  border: none;
+  background: none;
+  color: #6b6b6b;
+  -webkit-transition: -webkit-transform .2s ease-in-out;
+  transition: -webkit-transform .2s ease-in-out;
+  transition: transform .2s ease-in-out;
+  transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
+}
+
+.App .Player .comandi .play:hover, .App .Player .comandi .next:hover, .App .Player .comandi .prev:hover {
+  color: white;
+  -webkit-transform: scale(1.4, 1.4);
+          transform: scale(1.4, 1.4);
+}
+
+.App hr {
+  border: none;
+  border-bottom: 1px solid rgba(238, 238, 238, 0.2);
+}
+
+@media screen and (max-width: 950px) {
+  .App {
+    height: 100vh;
+  }
+  .App .playlist-container {
+    display: block;
+    overflow-y: scroll;
+  }
+  .App .playlist-container .playlist-info {
+    padding: 0 20px;
+  }
+  .App .playlist-container .playlist-info .info {
+    text-align: center;
+  }
+  .App .playlist-container .playlist {
+    overflow-y: hidden;
+  }
+  .App .playlist-container .playlist .Brano {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 40px 1fr 1fr;
+        grid-template-columns: 40px 1fr 1fr;
+    -webkit-column-gap: 10px;
+            column-gap: 10px;
+  }
+  .App .playlist-container .playlist .Brano .select {
+    opacity: 1;
+  }
+  .App .playlist-container .playlist .Brano .album {
+    display: none;
+  }
+  .App .playlist-container .playlist .Brano:hover {
+    background-color: transparent;
+  }
+  .App .playlist-container .playlist .Brano:active {
+    background-color: rgba(238, 238, 238, 0.2);
+  }
+  .App .Player {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 100px 1fr;
+        grid-template-columns: 100px 1fr;
+  }
+  .App .Player .cover .info {
+    display: none;
+  }
+  .App .Player .comandi .play, .App .Player .comandi .next, .App .Player .comandi .prev {
+    -webkit-transition: -webkit-transform .2s ease-in-out;
+    transition: -webkit-transform .2s ease-in-out;
+    transition: transform .2s ease-in-out;
+    transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
+  }
+  .App .Player .comandi .play:hover, .App .Player .comandi .next:hover, .App .Player .comandi .prev:hover {
+    color: #6b6b6b;
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+  .App .Player .comandi .play:active, .App .Player .comandi .next:active, .App .Player .comandi .prev:active {
+    color: white;
+    -webkit-transform: scale(1.4, 1.4);
+            transform: scale(1.4, 1.4);
+  }
+}
+/*# sourceMappingURL=index.css.map */

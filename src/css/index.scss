@@ -1,0 +1,199 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.App{
+  height: 100vh;
+  background-image: linear-gradient(#3E3E3E, #000);
+  display: grid;
+  grid-template-rows: 1fr 100px;
+
+  .playlist-container{
+    display: grid;
+    column-gap: 10px;
+    grid-template-columns: 20% 1fr;
+    overflow: hidden;
+    
+    .playlist-info{
+      h1{
+        padding: 10px;
+        text-align: center;
+        font-size: 36px;
+        color: white;
+        font-weight: normal;
+      }
+      img{
+        width: 100%;
+        height: auto;
+      }
+      .info{
+        padding: 10px;
+        color: white;
+        h2{
+          font-weight: lighter;
+          font-size: 32px;
+        }
+      }
+    }
+  
+    .playlist{
+      overflow-y: scroll;
+      .Brano{
+        padding: 10px 0;
+        height: auto;
+        color: white;
+        display: grid;
+        align-items: center;
+        column-gap: 10px;
+        grid-template-columns: 60px 1fr 1fr 1fr;
+        .select{
+          outline: none;
+          background: none;
+          border: none;
+          cursor: pointer;
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          opacity: 0;
+        }
+        h2{
+          font-weight: normal;
+          font-size: 20px;
+        }
+        &:hover{
+          background-color: rgba($color: #eeeeee, $alpha: 0.2);
+          .select{
+            opacity: 1;
+          }
+        }
+      }
+      .playing{
+        color: #1ED760;
+      }
+    }
+  }
+  
+  .Player{
+    background-color: #282828;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0 10px 0 0;
+  
+    .cover{
+      height: 100px;
+      display: flex;
+      img{
+        width: 100px;
+        height: 100%;
+      }
+      .info{
+        padding-left: 10px;
+        color: white;
+        align-self: center;
+        .h1{
+          display: block;
+          font-size: 20px;
+        }
+        .h2{
+          font-size: 15px;
+        }
+      }
+    }
+  
+    .comandi{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      .play{
+        margin: 0 30px;
+      }
+  
+      .play, .next, .prev{
+        outline: none;
+        border: none;
+        background: none;
+        color: rgb(107, 107, 107);
+        &:hover{
+          color: white;
+          transform: scale(1.4,1.4);
+        }
+        transition: transform .2s ease-in-out;
+      }
+    }
+  }
+  
+  hr{
+    border: none;
+    border-bottom: 1px solid rgba($color: #eeeeee, $alpha: 0.2);
+  }
+}
+
+
+
+@media screen and (max-width: 950px) {
+  .App{
+    height: 100vh;
+    
+    .playlist-container{
+      display: block;
+      overflow-y: scroll;
+
+      .playlist-info{
+        padding: 0 20px;
+        .info{
+          text-align: center;
+        }
+      }
+
+      .playlist{
+        overflow-y: hidden;
+        .Brano{
+          display: grid;
+          grid-template-columns: 40px 1fr 1fr;
+          column-gap: 10px;
+          .select{
+            opacity: 1;
+          }
+          .album{
+            display: none;
+          }
+          &:hover{
+            background-color: transparent;
+          }
+          &:active{
+            background-color: rgba($color: #eeeeee, $alpha: 0.2);
+          }
+        }
+      }
+    }
+
+    .Player{
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      .cover{
+        .info{
+          display: none;
+        }
+      }
+      .comandi{
+        .play, .next, .prev{
+          &:hover{
+            color: rgb(107, 107, 107);;
+            transform: scale(1.0,1.0);
+          }
+          &:active{
+            color: white;
+            transform: scale(1.4,1.4);
+          }
+          transition: transform .2s ease-in-out;
+        }
+      }
+    }
+  }
+}
