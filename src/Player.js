@@ -3,14 +3,16 @@ import blankCanvas from './blankCanvas.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faBackward, faForward, faPause } from '@fortawesome/free-solid-svg-icons';
 
-const Player = ({ brano, setPlaying, isPlaying, setIsPlaying, audio }) => {
+const Player = ({ brano, setPlaying, isPlaying, setIsPlaying, audio, len, playing }) => {
 
   const nextSong = () => {
-    setPlaying(prevPlaying => prevPlaying + 1);
+    if (playing < len - 1)
+      setPlaying(prevPlaying => prevPlaying + 1);
   }
 
   const prevSong = () => {
-    setPlaying(prevPlaying => prevPlaying - 1);
+    if (playing > 0)
+      setPlaying(prevPlaying => prevPlaying - 1);
   }
 
   return (
@@ -25,11 +27,13 @@ const Player = ({ brano, setPlaying, isPlaying, setIsPlaying, audio }) => {
       <div className="comandi">
         <button className="prev" onClick={prevSong}><FontAwesomeIcon icon={faBackward} size="lg" /></button>
         <button className="play" onClick={() => {
-          setIsPlaying(!isPlaying);
-          if (!isPlaying)
-            audio.current.play();
-          else
-            audio.current.pause();
+          try {
+            if (!isPlaying)
+              audio.current.play();
+            else
+              audio.current.pause();
+            setIsPlaying(!isPlaying);
+          } catch (err) { }
         }}><FontAwesomeIcon icon={isPlaying ? faPause : faPlay} size="lg" /></button>
         <button className="next" onClick={nextSong}><FontAwesomeIcon icon={faForward} size="lg" /></button>
       </div>

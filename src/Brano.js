@@ -2,9 +2,10 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 
-const Brano = ({ brano, playing, setPlaying, index }) => {
+const Brano = ({ brano, playing, setPlaying, index, setRandomPlaying }) => {
 
   const playSong = () => {
+    setRandomPlaying(false);
     setPlaying(index);
   }
 

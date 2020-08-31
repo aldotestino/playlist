@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Info = ({ info }) => {
+const Info = ({ info, play }) => {
   return (
     <div className="playlist-info">
       <h1>{info.name}</h1>
@@ -9,6 +9,7 @@ const Info = ({ info }) => {
         <h2>{info.owner.display_name}</h2>
         <h2>{info.tracks.total} Brani</h2>
         <h2>Followers: {info.followers.total}</h2>
+        <button onClick={play} className="shuffle-play">PLAY</button>
       </div>
     </div>
   )

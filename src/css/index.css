@@ -27,7 +27,7 @@
 }
 
 .App .playlist-container .playlist-info h1 {
-  padding: 10px;
+  margin-top: 20px;
   text-align: center;
   font-size: 36px;
   color: white;
@@ -35,18 +35,38 @@
 }
 
 .App .playlist-container .playlist-info img {
+  margin-top: 20px;
   width: 100%;
   height: auto;
 }
 
 .App .playlist-container .playlist-info .info {
-  padding: 10px;
+  margin-top: 20px;
   color: white;
+  text-align-last: center;
 }
 
 .App .playlist-container .playlist-info .info h2 {
   font-weight: lighter;
   font-size: 32px;
+}
+
+.App .playlist-container .playlist-info .info .shuffle-play {
+  margin-top: 20px;
+  color: white;
+  background: none;
+  outline: none;
+  border: none;
+  background-color: #1ED760;
+  font-size: 24px;
+  padding: 5px 30px;
+  border-radius: 30px;
+}
+
+.App .playlist-container .playlist-info .info .shuffle-play:hover {
+  -webkit-transform: scale(1.05, 1.05);
+          transform: scale(1.05, 1.05);
+  background-color: #1bc156;
 }
 
 .App .playlist-container .playlist {
@@ -85,6 +105,7 @@
           justify-content: center;
   height: 100%;
   opacity: 0;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .App .playlist-container .playlist .Brano h2 {
@@ -180,6 +201,29 @@
   border-bottom: 1px solid rgba(238, 238, 238, 0.2);
 }
 
+.rpn-notification-holder {
+  width: 90%;
+}
+
+.rpn-notification-holder .rpn-notification-card {
+  width: 100%;
+  -webkit-box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+          box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
+}
+
+.rpn-notification-holder .rpn-notification-card .rpn-notification-card-top span {
+  font-size: 18px;
+}
+
+.rpn-notification-holder .rpn-notification-card .rpn-notification-card-bottom {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.rpn-notification-holder .rpn-notification-card .rpn-notification-card-bottom span {
+  font-size: 18px;
+}
+
 @media screen and (max-width: 950px) {
   .App {
     height: 100vh;
@@ -191,10 +235,18 @@
   .App .playlist-container .playlist-info {
     padding: 0 20px;
   }
-  .App .playlist-container .playlist-info .info {
-    text-align: center;
+  .App .playlist-container .playlist-info .info .shuffle-play:hover {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+    background-color: #1ED760;
+  }
+  .App .playlist-container .playlist-info .info .shuffle-play:active {
+    -webkit-transform: scale(1.05, 1.05);
+            transform: scale(1.05, 1.05);
+    background-color: #1bc156;
   }
   .App .playlist-container .playlist {
+    margin-top: 20px;
     overflow-y: hidden;
   }
   .App .playlist-container .playlist .Brano {
@@ -207,6 +259,7 @@
   }
   .App .playlist-container .playlist .Brano .select {
     opacity: 1;
+    color: #6b6b6b;
   }
   .App .playlist-container .playlist .Brano .album {
     display: none;
@@ -216,6 +269,9 @@
   }
   .App .playlist-container .playlist .Brano:active {
     background-color: rgba(238, 238, 238, 0.2);
+  }
+  .App .playlist-container .playlist .Brano:active .select {
+    color: white;
   }
   .App .Player {
     display: -ms-grid;
