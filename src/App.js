@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import addNotification, { Notifications } from 'react-push-notification';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
-import file from './trap.json';
+import file from './sus.json';
 import Brano from './Brano';
 import Player from './Player';
 import Info from './Info';
