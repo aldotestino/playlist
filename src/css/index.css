@@ -201,29 +201,6 @@
   border-bottom: 1px solid rgba(238, 238, 238, 0.2);
 }
 
-.rpn-notification-holder {
-  width: 90%;
-}
-
-.rpn-notification-holder .rpn-notification-card {
-  width: 100%;
-  -webkit-box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
-          box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.6);
-}
-
-.rpn-notification-holder .rpn-notification-card .rpn-notification-card-top span {
-  font-size: 18px;
-}
-
-.rpn-notification-holder .rpn-notification-card .rpn-notification-card-bottom {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.rpn-notification-holder .rpn-notification-card .rpn-notification-card-bottom span {
-  font-size: 18px;
-}
-
 @media screen and (max-width: 950px) {
   .App {
     height: 100vh;

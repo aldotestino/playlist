@@ -152,31 +152,6 @@
   }
 }
 
-.rpn-notification-holder{
-  width: 90%;
-
-  .rpn-notification-card{
-    width: 100%;
-    box-shadow: 10px 10px 15px rgba($color: #000000, $alpha: 0.6);
-
-    .rpn-notification-card-top{
-      span{
-        font-size: 18px;
-      }
-    }
-
-    .rpn-notification-card-bottom{
-      box-shadow: none;
-      span{
-        font-size: 18px;
-      }
-    }
-    
-  }
-}
-
-
-
 @media screen and (max-width: 950px) {
   .App{
     height: 100vh;

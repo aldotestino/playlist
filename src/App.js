@@ -1,8 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import addNotification, { Notifications } from 'react-push-notification';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
-import file from './sus.json';
+import file from './trap.json';
 import Brano from './Brano';
 import Player from './Player';
 import Info from './Info';
@@ -24,35 +21,28 @@ function App() {
       setIsPlaying(true);
       audio.current = new Audio(playlist[playing].track.preview_url);
       audio.current.play();
-      addNotification({
-        title: 'Now playing',
-        subtitle: `${playlist[playing].track.name}`,
-        message: `${playlist[playing].track.artists[0].name}`,
-        backgroundTop: '#1ED760',
-        duration: 5000,
-        closeButton: <FontAwesomeIcon icon={faTimesCircle} />
-      });
     }
     try {
       audio.current.addEventListener('ended', () => {
         setIsPlaying(false);
         if (randomPlaying)
-          setPlaying(Math.round(Math.random() * 10000 % playlist.length));
+          setPlaying(Math.floor(Math.random() * playlist.length));
         else
-          if (playing < playlist.length)
+          if (playing < playlist.length - 1)
             setPlaying(playing + 1);
+          else if (playing === playlist.length - 1)
+            setPlaying(0);
       });
     } catch (err) { }
   }, [playing, playlist, randomPlaying]);
 
   const play = () => {
     setRandomPlaying(true);
-    setPlaying(Math.round(Math.random() * 10000 % playlist.length));
+    setPlaying(Math.floor(Math.random() * playlist.length));
   }
 
   return (
     <div className="App">
-      <Notifications />
       <div className="playlist-container">
         <Info info={file} play={play} />
         <div className="playlist">

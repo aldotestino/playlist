@@ -12,7 +12,7 @@ const Info = ({ info, play }) => {
         <button onClick={play} className="shuffle-play">PLAY</button>
       </div>
     </div>
-  )
+  );
 }
 
 export default Info

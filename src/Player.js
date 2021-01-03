@@ -6,11 +6,15 @@ import { faPlay, faBackward, faForward, faPause } from '@fortawesome/free-solid-
 const Player = ({ brano, setPlaying, isPlaying, setIsPlaying, audio, len, playing }) => {
 
   const nextSong = () => {
+    if(playing === -1)
+      return;
     if (playing < len - 1)
       setPlaying(prevPlaying => prevPlaying + 1);
   }
 
   const prevSong = () => {
+    if(playing === -1)
+      return;
     if (playing > 0)
       setPlaying(prevPlaying => prevPlaying - 1);
   }
@@ -38,7 +42,7 @@ const Player = ({ brano, setPlaying, isPlaying, setIsPlaying, audio, len, playin
         <button className="next" onClick={nextSong}><FontAwesomeIcon icon={faForward} size="lg" /></button>
       </div>
     </div>
-  )
+  );
 }
 
 export default Player;
